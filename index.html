@@ -204,17 +204,32 @@
         .whatsapp {
             background: var(--verde);
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             transition: transform 0.3s ease;
+            font-size: 1.1rem;
+            white-space: nowrap;
         }
         
         .whatsapp:hover {
             transform: scale(1.05);
+        }
+        /* Novas regras de responsividade */
+        
+        .desktop-only {
+            display: inline-flex;
+        }
+        
+        .mobile-only {
+            display: none;
+        }
+        
+        .contato-urgente {
+            display: none;
         }
         
         @media (max-width: 768px) {
@@ -245,6 +260,19 @@
             h1 {
                 font-size: clamp(1.8rem, 6vw, 2.5rem);
                 line-height: 1.2;
+            }
+            .desktop-only {
+                display: none !important;
+            }
+            .mobile-only {
+                display: inline-flex !important;
+            }
+            .contato-urgente {
+                display: block;
+            }
+            .whatsapp {
+                padding: 1.2rem 2.5rem;
+                font-size: 1.2rem;
             }
         }
         /* PARTICULAS FLUTUANTES */
@@ -381,13 +409,17 @@
                 </div>
             </div>
 
-
+            <div class="contato-urgente">
+                <a href="https://wa.me/5521964380665" class="whatsapp" style="font-weight: 600;">
+                    <i class="fab fa-whatsapp"></i> Agendar via WhatsApp
+                </a>
+            </div>
         </div>
 
         <div class="content-right">
             <div class="overlay">
                 <h2 style="color: var(--texto); margin-bottom: 1rem;">Agendamento Online</h2>
-                <a href="https://wa.me/5521964380665" class="whatsapp" style="font-weight: 600;">
+                <a href="https://wa.me/5521964380665" class="whatsapp desktop-only" style="font-weight: 600;">
                     <i class="fab fa-whatsapp"></i> Agendar via WhatsApp
                 </a>
             </div>

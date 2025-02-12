@@ -4,5 +4,7 @@
   ],
   "hints": {
     "no-inline-styles": "off"
-  }
+  },
+  "exclude": ["**/*.html"],
+  "ignores": ["MD041"]
 }

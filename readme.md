@@ -7,12 +7,14 @@
 ## 🚀 Recursos Técnicos
 
 ### Arquitetura Front-end
+
 - **HTML5 Semântico** com SEO otimizado
 - **CSS3 Moderno** (Grid/Flexbox/Animations)
 - **JavaScript Vanilla** (ES6+ Modules)
 - **Performance 98/100** (Lighthouse)
 
 ### Sistema de Segurança
+
 ```json:vercel.json
 {
   "headers": [{
@@ -27,6 +29,7 @@
 ```
 
 ### Features Principais
+
 ```html:index.html
 <!-- Sistema de Segurança Integrado -->
 <script>
@@ -45,7 +48,9 @@ const security = {
 ```
 
 ## 🛠 Tech Stack
+
 **Core:**
+
 ```css:styles.css
 :root {
   --primary: #6EC3F5;
@@ -60,18 +65,21 @@ const security = {
 ```
 
 **Ferramentas:**
+
 - Vercel (Deploy)
 - Google Fonts (Otimização)
 - Font Awesome (Ícones)
 - CSS Grid (Layout)
 
 ## 📦 Instalação
+
 ```bash
-git clone https://github.com/FuturoDevJunior/dra.git
-cd dra && python3 -m http.server 8000
+git clone https://github.com/FuturoDevJunior/dra-ane-simas.git
+cd dra-ane-simas && python3 -m http.server 8000
 ```
 
 ## 🌟 Destaques
+
 - Bloqueio de DevTools/Click Direito
 - 30+ Animações CSS performáticas
 - Gradients CSS otimizados
@@ -79,4 +87,5 @@ cd dra && python3 -m http.server 8000
 - Carregamento <1s
 
 ## 📄 Licença
+
 MIT License - [Detalhes](LICENSE)
