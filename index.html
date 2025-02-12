@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Adicionado para prevenir detecção de telefone -->
     <title>Dra. Ane Simas - Pediatria Especializada</title>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -67,6 +69,12 @@
         .crm {
             font-size: 0.9rem;
             color: var(--laranja);
+            -webkit-user-select: none;
+            /* Adiciona suporte para Safari/iOS */
+            user-select: none;
+            /* Impede seleção de texto */
+            pointer-events: none;
+            /* Remove qualquer interatividade */
         }
         
         .content-left {
