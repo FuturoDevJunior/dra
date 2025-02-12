@@ -67,8 +67,8 @@ const security = {
 
 ## 📦 Instalação
 ```bash
-git clone https://github.com/FuturoDevJunior/dra-ane-simas.git
-cd dra-ane-simas && python3 -m http.server 8000
+git clone https://github.com/FuturoDevJunior/dra.git
+cd dra && python3 -m http.server 8000
 ```
 
 ## 🌟 Destaques
