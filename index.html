@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* CSS incorporado para maior portabilidade */
+        /* CSS OTIMIZADO */
         
          :root {
             --azul-claro: #4AA9D6;
@@ -16,7 +16,7 @@
             --verde: #88C9A1;
             --offwhite: #FFF5ED;
             --texto: #1A1A1A;
-            --gradient-azul: linear-gradient(135deg, var(--azul-claro), #3E8FC4);
+            --gradient-azul: linear-gradient(135deg, #4AA9D6, #3E8FC4);
         }
         
         * {
@@ -328,6 +328,20 @@
                 transform: scale(1.1);
             }
         }
+        /* ANIMAÇÕES ESSENCIAIS */
+        
+        @keyframes heartbeat {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.3);
+            }
+            50% {
+                transform: scale(0.95);
+            }
+        }
     </style>
 </head>
 
@@ -372,19 +386,56 @@
         </div>
     </div>
 
-    <div class="mickey-magic" onclick="revealMickeyMagic()">
+    <div class="mickey-magic" onclick="toggleMickey()">
         <div class="mickey-container">
             <div class="mickey-head"></div>
             <div class="mickey-ears">
                 <div class="ear left"></div>
                 <div class="ear right"></div>
             </div>
-            <div class="mickey-message">Dra. Ane Simas: A médica que Encanta Corações! ❤️</div>
+            <div class="mickey-message">Dra. Ane Simas: A Pediatra que Encanta Corações! ❤️</div>
         </div>
     </div>
 
     <script>
-        function revealMickeyMagic() {
+        // SISTEMA DE SEGURANÇA ATUALIZADO
+        const security = {
+            init() {
+                this.blockDevTools();
+                this.blockContextMenu();
+            },
+
+            blockDevTools() {
+                const devToolsCheck = setInterval(() => {
+                    if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) {
+                        window.location.href = "https://dra-gamma.vercel.app/";
+                    }
+                }, 1000);
+
+                window.addEventListener('resize', () => {
+                    clearInterval(devToolsCheck);
+                    this.blockDevTools();
+                });
+            },
+
+            blockContextMenu() {
+                document.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                    this.showToast('⚠️ Ação bloqueada por segurança');
+                });
+            },
+
+            showToast(message) {
+                const toast = document.createElement('div');
+                toast.textContent = message;
+                toast.style = `/* Estilos do toast */`;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 2000);
+            }
+        };
+
+        // EASTER EGG FUNCIONAL
+        function toggleMickey() {
             const mickey = document.querySelector('.mickey-magic');
             const message = document.querySelector('.mickey-message');
 
@@ -393,52 +444,10 @@
             setTimeout(() => {
                 message.style.opacity = '1';
                 message.style.transform = 'translateY(0)';
-            }, 300);
+            }, 50);
         }
 
-        // Sistema de segurança avançado
-        const devTools = {
-            init() {
-                this.blockF12();
-                this.blockContextMenu();
-                this.blockDevToolsOpen();
-            },
-
-            blockF12() {
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J')) {
-                        e.preventDefault();
-                        window.location.href = "https://dra-gamma.vercel.app/";
-                    }
-                });
-            },
-
-            blockContextMenu() {
-                document.addEventListener('contextmenu', (e) => {
-                    e.preventDefault();
-                    this.showWarning();
-                });
-            },
-
-            blockDevToolsOpen() {
-                const threshold = 160;
-                setInterval(() => {
-                    if (window.outerWidth - window.innerWidth > threshold ||
-                        window.outerHeight - window.innerHeight > threshold) {
-                        window.location.href = "https://dra-gamma.vercel.app/";
-                    }
-                }, 1000);
-            },
-
-            showWarning() {
-                const warning = document.createElement('div');
-                warning.style = `/* Estilos do aviso */`;
-                document.body.appendChild(warning);
-                setTimeout(() => warning.remove(), 2000);
-            }
-        };
-
-        devTools.init();
+        security.init();
     </script>
 </body>
 

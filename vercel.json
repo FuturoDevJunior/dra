@@ -3,7 +3,7 @@
         "source": "/(.*)",
         "headers": [{
                 "key": "Content-Security-Policy",
-                "value": "default-src 'self' https:; img-src 'self' data: https://*.vercel.live; object-src 'none'"
+                "value": "default-src 'self' https: 'unsafe-inline'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:;"
             },
             {
                 "key": "X-Content-Type-Options",
@@ -15,11 +15,7 @@
             },
             {
                 "key": "Permissions-Policy",
-                "value": "accelerometer=(), autoplay=(), camera=(), document-domain=(), encrypted-media=(), fullscreen=*, geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=*, speaker=(), sync-xhr=(), usb=(), vertical-scroll=()"
-            },
-            {
-                "key": "Referrer-Policy",
-                "value": "strict-origin-when-cross-origin"
+                "value": "geolocation=(), microphone=(), camera=()"
             }
         ]
     }]
