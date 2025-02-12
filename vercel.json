@@ -3,7 +3,7 @@
         "source": "/(.*)",
         "headers": [{
                 "key": "Content-Security-Policy",
-                "value": "default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; img-src 'self' data:; object-src 'none'"
+                "value": "default-src 'self' https:; img-src 'self' data: https://*.vercel.live; object-src 'none'"
             },
             {
                 "key": "X-Content-Type-Options",
@@ -15,7 +15,11 @@
             },
             {
                 "key": "Permissions-Policy",
-                "value": "geolocation=(), microphone=(), camera=()"
+                "value": "accelerometer=(), autoplay=(), camera=(), document-domain=(), encrypted-media=(), fullscreen=*, geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=*, speaker=(), sync-xhr=(), usb=(), vertical-scroll=()"
+            },
+            {
+                "key": "Referrer-Policy",
+                "value": "strict-origin-when-cross-origin"
             }
         ]
     }]
