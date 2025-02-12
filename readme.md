@@ -3,9 +3,6 @@
 [![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?style=flat&logo=vercel)](https://dra-gamma.vercel.app)
 [![Security](https://img.shields.io/badge/Security-Level_4-4AA9D6?logo=securityscan)](https://owasp.org)
 
-<div align="center">
-  <img src="https://via.placeholder.com/1200x600.png/4AA9D6/FFFFFF?text=Demo+Site" alt="Preview">
-</div>
 
 ## 🚀 Recursos Técnicos
 
