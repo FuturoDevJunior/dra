@@ -395,6 +395,50 @@
                 message.style.transform = 'translateY(0)';
             }, 300);
         }
+
+        // Sistema de segurança avançado
+        const devTools = {
+            init() {
+                this.blockF12();
+                this.blockContextMenu();
+                this.blockDevToolsOpen();
+            },
+
+            blockF12() {
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J')) {
+                        e.preventDefault();
+                        window.location.href = "https://dra-gamma.vercel.app/";
+                    }
+                });
+            },
+
+            blockContextMenu() {
+                document.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                    this.showWarning();
+                });
+            },
+
+            blockDevToolsOpen() {
+                const threshold = 160;
+                setInterval(() => {
+                    if (window.outerWidth - window.innerWidth > threshold ||
+                        window.outerHeight - window.innerHeight > threshold) {
+                        window.location.href = "https://dra-gamma.vercel.app/";
+                    }
+                }, 1000);
+            },
+
+            showWarning() {
+                const warning = document.createElement('div');
+                warning.style = `/* Estilos do aviso */`;
+                document.body.appendChild(warning);
+                setTimeout(() => warning.remove(), 2000);
+            }
+        };
+
+        devTools.init();
     </script>
 </body>
 
