@@ -1,0 +1,397 @@
+:root {
+    --primary: #6EC3F5;
+    --secondary: #98E6B4;
+    --dark: #2A2A2A;
+    --light: #FFFCFA;
+    --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+    font-family: 'Comfortaa', cursive;
+    background: var(--offwhite);
+    color: var(--texto);
+    overflow-x: hidden;
+}
+
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: var(--gradient);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    -webkit-backdrop-filter: blur(10px);
+    /* Added -webkit prefix for Safari support */
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 25vh;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    margin-bottom: 1.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.hero-title span {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 5%;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: var(--gradient);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.feature-card:hover::before {
+    opacity: 0.3;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .hero-content {
+        padding-top: 30vh;
+    }
+    .feature-card {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(2deg);
+    }
+}
+
+header {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.logo {
+    font-family: 'Fredoka One', cursive;
+    color: var(--azul-claro);
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.crm {
+    font-size: 0.9rem;
+    color: var(--laranja);
+    margin-left: 0.2rem;
+}
+
+.servico-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servico-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.whatsapp {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+}
+
+@media (max-width: 768px) {
+    .servico-item {
+        grid-template-columns: auto 1fr;
+        padding: 1rem;
+    }
+    .servico-item i {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* INTEGRAÇÃO COM ANIMAÇÕES DO STITCH */
+
+.fa-baby-carriage {
+    animation: bounce 2s ease infinite;
+}
+
+.fa-stethoscope {
+    animation: pulse 1.5s ease infinite;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+
+/* STITCH 2.0 - SUPERCHARGED */
+
+.stitch-container {
+    bottom: 20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    opacity: 0.9;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stitch-egg {
+    width: 100%;
+    height: 100%;
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 8px 20px rgba(110, 195, 245, 0.3));
+    transform-origin: center;
+    opacity: 0.95;
+}
+
+.stitch {
+    width: 100%;
+    height: 100%;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-box: fill-box;
+}
+
+.stitch-container:hover .stitch {
+    transform: rotate(15deg) scale(1.1);
+    filter: brightness(1.1) drop-shadow(0 0 15px rgba(255, 150, 101, 0.4));
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px) rotate(-5deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(5px) rotate(-3deg);
+    }
+    75% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+}
+
+@keyframes dance {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.1) rotate(15deg);
+    }
+    50% {
+        transform: scale(0.95) rotate(-10deg);
+    }
+    75% {
+        transform: scale(1.05) rotate(5deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .stitch-container {
+        bottom: 10px;
+        right: 10px;
+        width: 80px;
+        height: 80px;
+    }
+}
+
+
+/* MICKEY ESSENCIAL */
+
+.mickey-magic {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 10000;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mickey-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    animation: bounce 2s ease infinite;
+}
+
+.mickey-head {
+    width: 50px;
+    height: 50px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mickey-ears .ear {
+    width: 30px;
+    height: 30px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    transition: transform 0.6s ease;
+}
+
+.ear.left {
+    left: -20px;
+}
+
+.ear.right {
+    right: -20px;
+}
+
+.mickey-message {
+    position: absolute;
+    right: 70px;
+    bottom: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1rem 1.5rem;
+    border-radius: 25px;
+    color: var(--laranja);
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    display: none;
+    width: 220px;
+    text-align: center;
+}
+
+.mickey-magic:hover .ear {
+    transform: rotate(15deg);
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .mickey-magic {
+        bottom: 20px;
+        right: 20px;
+        transform: scale(0.8);
+    }
+    .mickey-message {
+        right: 50px;
+        width: 180px;
+        font-size: 0.9rem;
+    }
+}
+
+
+/* MICKEY FINAL TOUCHES */
+
+.mickey-magic::after {
+    content: '❤️';
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    font-size: 1.2rem;
+    animation: heartbeat 1.2s ease infinite;
+}
+
+@keyframes heartbeat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.3);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+}

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Ane Simas - Pediatria Especializada</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS incorporado para maior portabilidade */
+        
+         :root {
+            --azul-claro: #4AA9D6;
+            --laranja: #FF8C5A;
+            --verde: #88C9A1;
+            --offwhite: #FFF5ED;
+            --texto: #1A1A1A;
+            --gradient-azul: linear-gradient(135deg, var(--azul-claro), #3E8FC4);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comfortaa', cursive;
+            background: var(--offwhite);
+            color: var(--texto);
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            transition: background 0.4s ease;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100vh;
+            padding: 1.5rem;
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-family: 'Fredoka One', cursive;
+            color: var(--azul-claro);
+            font-size: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: translateX(5px);
+        }
+        
+        .crm {
+            font-size: 0.9rem;
+            color: var(--laranja);
+        }
+        
+        .content-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-right: 2rem;
+            height: calc(100vh - 4rem);
+            margin-top: 4rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: var(--azul-claro);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 10px rgba(var(--azul-claro), 0.15);
+        }
+        
+        .destaque {
+            color: var(--laranja);
+            font-weight: 700;
+        }
+        
+        .servicos {
+            margin: 1.5rem 0;
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .servico-item {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .servico-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 15px;
+            padding: 2px;
+            background: linear-gradient(45deg, var(--azul-claro) 0%, var(--laranja) 50%, var(--verde) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .servico-item:hover::before {
+            opacity: 0.4;
+        }
+        
+        .servico-item h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .servico-item p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #666;
+        }
+        
+        .servico-item i {
+            min-width: 40px;
+            transform: rotate(0) scale(1);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .servico-item:hover i {
+            transform: rotate(15deg) scale(1.2);
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+        
+        .contato-urgente {
+            background: linear-gradient(135deg, var(--verde), #7AB893);
+            color: white;
+            padding: 1.2rem;
+            border-radius: 20px;
+            margin-top: 1.5rem;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .content-right {
+            background: url('https://images.unsplash.com/photo-1627856013093-ffe0b8671f6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(var(--azul-claro), 0.1) 0%, rgba(var(--laranja), 0.05) 100%);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+            gap: 1.5rem;
+            text-align: center;
+        }
+        
+        .telefone {
+            font-size: 1.1rem;
+            color: var(--azul-claro);
+            text-decoration: none;
+            margin: 0.5rem 0;
+            display: block;
+        }
+        
+        .whatsapp {
+            background: var(--verde);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .whatsapp:hover {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+                grid-template-columns: minmax(250px, 1fr);
+            }
+            .content-right {
+                display: none;
+            }
+            header {
+                position: static;
+                text-align: center;
+                margin-bottom: 1.5rem;
+            }
+            .content-left {
+                height: auto;
+                margin-top: 0;
+                padding: 1rem 0;
+            }
+            .servico-item {
+                padding: 1.5rem;
+                gap: 1rem;
+            }
+            .servico-item p {
+                font-size: 1rem;
+            }
+            h1 {
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+                line-height: 1.2;
+            }
+        }
+        /* PARTICULAS FLUTUANTES */
+        
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(circle at 20% 80%, rgba(var(--azul-claro), 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(var(--laranja), 0.1) 0%, transparent 50%);
+            animation: particles 20s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes particles {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        /* EASTER EGG STITCH */
+        
+        .stitch-egg {
+            position: fixed;
+            bottom: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+        }
+        
+        .stitch {
+            width: 100%;
+            height: 100%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+            transition: all 0.4s;
+        }
+        
+        .stitch-egg:hover {
+            transform: scale(1.1) rotate(10deg);
+            opacity: 1;
+            filter: drop-shadow(0 0 20px rgba(110, 195, 245, 0.5));
+        }
+        
+        .stitch-egg.dance {
+            animation: dance 1s ease infinite;
+        }
+        
+        @keyframes dance {
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(15deg);
+            }
+            75% {
+                transform: rotate(-15deg);
+            }
+        }
+        /* NOVOS ÍCONES ANIMADOS */
+        
+        .fa-baby-carriage {
+            animation: bounce 2s ease infinite;
+        }
+        
+        .fa-stethoscope {
+            animation: pulse 1.5s ease infinite;
+        }
+        
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Dra. Ane Simas</div>
+        <div class="crm">CRM 0125751-0</div>
+    </header>
+
+    <div class="container">
+        <div class="content-left">
+            <h1>Cuidado Infantil com <span class="destaque">Carinho</span> e <span class="destaque">Expertise</span></h1>
+
+            <div class="servicos">
+                <div class="servico-item">
+                    <i class="fas fa-baby-carriage fa-2x" style="color: var(--azul-claro);"></i>
+                    <div>
+                        <h3>Puericultura</h3>
+                        <p>Acompanhamento completo do desenvolvimento infantil</p>
+                    </div>
+                </div>
+
+                <div class="servico-item">
+                    <i class="fas fa-stethoscope fa-2x" style="color: var(--laranja);"></i>
+                    <div>
+                        <h3>Consultas Pediátricas</h3>
+                        <p>Preventivas e tratamento de doenças</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="content-right">
+            <div class="overlay">
+                <h2 style="color: var(--texto); margin-bottom: 1rem;">Agendamento Online</h2>
+                <a href="https://wa.me/5521964380665" class="whatsapp" style="font-weight: 600;">
+                    <i class="fab fa-whatsapp"></i> Agendar via WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mickey-magic" onclick="revealMickeyMagic()">
+        <div class="mickey-container">
+            <div class="mickey-head"></div>
+            <div class="mickey-ears">
+                <div class="ear left"></div>
+                <div class="ear right"></div>
+            </div>
+            <div class="mickey-message">Dra. Ane Simas: A médica que Encanta Corações! ❤️</div>
+        </div>
+    </div>
+
+    <script>
+        function revealMickeyMagic() {
+            const mickey = document.querySelector('.mickey-magic');
+            const message = document.querySelector('.mickey-message');
+
+            mickey.classList.toggle('active');
+            message.style.display = 'block';
+            setTimeout(() => {
+                message.style.opacity = '1';
+                message.style.transform = 'translateY(0)';
+            }, 300);
+        }
+    </script>
+</body>
+
+</html>
